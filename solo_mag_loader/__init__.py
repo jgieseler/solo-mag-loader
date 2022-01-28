@@ -50,6 +50,9 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
     """
     if type == 'normal-1-minute' and frame == 'srf':
         raise Exception("For SRF frame only 'normal' or 'burst' data type available!")
+    
+    if type == 'normal-1-min':
+        type = 'normal-1-minute'
 
     if level == 'll' or level == 'LL':
         level = 'll02'
