@@ -3,8 +3,6 @@ solo-mag-loader
 
 Python data loader for Solar Orbiter's (SolO) MAG instrument. At the moment provides level 2 (l2) obtained by SunPy through CDF files from CDAWeb.
 
-Not working at the moment: `level='ll'` and `frame='VSO'` 
-
 **Please always refer to the** `official MAG data description <https://issues.cosmos.esa.int/solarorbiterwiki/display/SOSP/Archive+Support+Data#ArchiveSupportData-MAGInstrument>`_ **before using the data!**
 
 Installation
@@ -31,6 +29,21 @@ returns Pandas dataframe(s) of the MAG measurements.
    startdate = 20210711
    enddate = 20210712 
    df = mag_load(startdate, enddate, level='l2', type='normal', frame='rtn')
+
+Input
+~~~~~
+
+-  ``startdate``, ``enddate``: YYYYMMDD, e.g., ``20210415`` (integer) (enddate must be 1 day after startdate!)
+-  ``level``: ``'l2'`` or ``'ll'`` (string). Defines level of data product: level 2 ('l2') or low-latency ('ll'). By default 'l2'
+-  ``type``: ``'normal'``, ``'normal-1-minute'``, or ``'burst'`` (string), optional. By default 'normal'.
+-  ``frame``: ``'rtn'``, ``'srf'``, or ``'vso'`` (string), optional. Coordinate frame of MAG data. By default 'rtn'.
+
+``level='ll'`` and ``frame='VSO'`` not working at the moment!
+
+Return
+~~~~~~
+
+-  Pandas data frame
 
 
 Data folder structure
