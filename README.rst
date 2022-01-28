@@ -20,17 +20,11 @@ Installation
 
 solo_mag_loader requires python >= 3.6 and SunPy >= 3.1.3
 
-It can be installed either from `PyPI <https://pypi.org/project/solo-epd-loader/>`_ using:
+It can be installed from this repository using pip:
 
 .. code:: bash
 
-    pip install solo-mag-loader
-
-or from `Anaconda <https://anaconda.org/conda-forge/solo-mag-loader/>`_ using:
-
-.. code:: bash
-
-    conda install -c conda-forge solo-mag-loader
+    pip install git+https://github.com/jgieseler/solo-mag-loader
 
 Usage
 -----
@@ -42,46 +36,8 @@ returns Pandas dataframe(s) of the MAG measurements.
 
    from solo_mag_loader import mag_load
 
-   df = mag_load(sensor, viewing, level, startdate, enddate, path, autodownload)
+   df = mag_load(startdate, enddate, level='l2', type='normal', frame='rtn')
 
-Input
-~~~~~
-
--  ``sensor``: ``'ept'``, ``'het'``, or ``'step'`` (string)
--  ``viewing``: ``'sun'``, ``'asun'``, ``''north'``, or ``'south'`` (string); not
-   needed for ``sensor = 'step'``
--  ``level``: ``'ll'`` or ``'l2'`` (string)
--  ``startdate``, ``enddate``: YYYYMMDD, e.g., 20210415 (integer) (if no
-   ``enddate`` is provided, ``enddate = startdate`` will be used)
--  ``path``: directory in which Solar Orbiter data is/should be
-   organized; e.g. ``'/home/userxyz/solo/data/'`` (string). See `Data folder structure`_ for more details.
--  ``autodownload``: if ``True`` will try to download missing data files
-   from SOAR (bolean)
-
-Return
-~~~~~~
-
--  For ``sensor`` = ``'ept'`` or ``'het'``:
-
-   1. Pandas dataframe with proton fluxes and errors (for EPT also alpha
-      particles) in ‘particles / (s cm^2 sr MeV)’
-   2. Pandas dataframe with electron fluxes and errors in ‘particles /
-      (s cm^2 sr MeV)’
-   3. Dictionary with energy information for all particles:
-
-      -  String with energy channel info
-      -  Value of lower energy bin edge in MeV
-      -  Value of energy bin width in MeV
-
--  For ``sensor`` = ``'step'``:
-
-   1. Pandas dataframe with fluxes and errors in ‘particles / (s cm^2 sr
-      MeV)’
-   2. Dictionary with energy information for all particles:
-
-      -  String with energy channel info
-      -  Value of lower energy bin edge in MeV
-      -  Value of energy bin width in MeV
 
 Data folder structure
 ---------------------
