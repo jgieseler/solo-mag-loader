@@ -40,7 +40,7 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
         Defines level of data product: level 2 ('l2') or low-latency ('ll').
         By default 'l2'.
     type : {'normal', 'normal-1-minute', or 'burst'}, optional
-        Viewing direction of sensor. By default 'normal'.
+        By default 'normal'.
     frame : {'rtn', 'srf', or 'vso'}, optional
         Coordinate frame of MAG data. By default 'rtn'.
 
