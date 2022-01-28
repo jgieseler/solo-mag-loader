@@ -1,17 +1,9 @@
 solo-epd-loader
 ===============
 
-|pypi Version| |conda version| |license| |python version|
+Python data loader for Solar Orbiter's (SolO) MAG instrument. At the moment provides level 2 (l2) obtained by SunPy through CDF files from CDAWeb.
 
-.. |pypi Version| image:: https://img.shields.io/pypi/v/solo-mag-loader?style=flat&logo=pypi
-   :target: https://pypi.org/project/solo-mag-loader/
-.. |conda version| image:: https://img.shields.io/conda/vn/conda-forge/solo-mag-loader?style=flat&logo=anaconda
-   :target: https://anaconda.org/conda-forge/solo-mag-loader/
-.. |license| image:: https://img.shields.io/conda/l/conda-forge/solo-mag-loader?style=flat
-   :target: https://github.com/jgieseler/solo-mag-loader/blob/main/LICENSE.rst
-.. |python version| image:: https://img.shields.io/pypi/pyversions/solo-mag-loader?style=flat&logo=python
-
-Python data loader for Solar Orbiter's (SolO) MAG instrument. At the moment provides level 2 (l2) and low latency (ll) data obtained by SunPy through CDF files from CDAWeb.
+Not working at the moment: `level='ll'` and `frame='VSO'` 
 
 **Please always refer to the** `official MAG data description <https://issues.cosmos.esa.int/solarorbiterwiki/display/SOSP/Archive+Support+Data#ArchiveSupportData-MAGInstrument>`_ **before using the data!**
 
