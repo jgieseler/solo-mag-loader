@@ -1,4 +1,4 @@
-solo-epd-loader
+solo-mag-loader
 ===============
 
 Python data loader for Solar Orbiter's (SolO) MAG instrument. At the moment provides level 2 (l2) obtained by SunPy through CDF files from CDAWeb.
