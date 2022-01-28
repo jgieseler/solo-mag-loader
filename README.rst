@@ -28,6 +28,8 @@ returns Pandas dataframe(s) of the MAG measurements.
 
    from solo_mag_loader import mag_load
 
+   startdate = 20210711
+   enddate = 20210712 
    df = mag_load(startdate, enddate, level='l2', type='normal', frame='rtn')
 
 
