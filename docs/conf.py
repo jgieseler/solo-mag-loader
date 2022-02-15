@@ -9,12 +9,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'solo-epd-loader'
-copyright = '2021, Jan Gieseler'
+project = 'solo-mag-loader'
+copyright = '2022, Jan Gieseler'
 author = 'Jan Gieseler'
 
 # The full version, including alpha/beta/rc tags
-from solo_epd_loader import __version__
+from solo_mag_loader import __version__
 release = __version__
 
 # -- General configuration ---------------------------------------------------

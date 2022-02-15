@@ -20,12 +20,11 @@ def _date2str(date):
 
 def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
     """
-    Load SolO/EPD data
+    Load SolO/MAG data
 
-    Load-in data for Solar Orbiter/EPD energetic charged particle sensors EPT,
-    HET, and STEP. Supports level 2 and low latency data provided by ESA's
-    Solar Orbiter Archive. Optionally downloads missing data directly. Returns
-    data as Pandas dataframe.
+    Load-in data for Solar Orbiter/MAG sensor. Supports level 2 and low latency
+    data provided by ESA's Solar Orbiter Archive. Optionally downloads missing
+    data directly. Returns data as Pandas dataframe.
 
     Parameters
     ----------
