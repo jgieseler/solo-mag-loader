@@ -33,7 +33,7 @@ returns Pandas dataframe(s) of the MAG measurements.
 Input
 ~~~~~
 
--  ``startdate``, ``enddate``: YYYYMMDD, e.g., ``20210415`` (integer) (enddate must be 1 day after startdate!)
+-  ``startdate``, ``enddate``: Datetime object (e.g., dt.date(2021,12,31) or dt.datetime(2021,4,15)), "standard"  datetime string (e.g., "2021/04/15") or integer of the form yyyymmdd with empty positions filled with zeros, e.g. '20210415' (enddate must be later than startdate)
 -  ``level``: ``'l2'`` or ``'ll'`` (string). Defines level of data product: level 2 ('l2') or low-latency ('ll'). By default 'l2'
 -  ``type``: ``'normal'``, ``'normal-1-minute'``, or ``'burst'`` (string), optional. By default 'normal'.
 -  ``frame``: ``'rtn'``, ``'srf'``, or ``'vso'`` (string), optional. Coordinate frame of MAG data. By default 'rtn'.

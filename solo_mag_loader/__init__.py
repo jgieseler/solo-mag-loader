@@ -6,6 +6,7 @@ try:
 except DistributionNotFound:
     pass  # package is not installed
 
+import datetime as dt
 from sunpy.net import Fido
 from sunpy.net import attrs as a
 from sunpy.timeseries import TimeSeries
@@ -28,13 +29,11 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
 
     Parameters
     ----------
-    startdate : yyyymmdd (int)
-        Provides year (yyyy), month (mm) and day (dd) of the start date as one
-        combined integer; fill empty positions with zeros, e.g. '20210415'
-    enddate : yyyymmdd (int)
-        Provides year (yyyy), month (mm) and day (dd) of the end date as one
-        combined integer; fill empty positions with zeros, e.g. '20210415'.
-        (enddate must be 1 day after startdate!)
+    startdate, enddate : {datetime, str, or int}
+        Datetime object (e.g., dt.date(2021,12,31) or dt.datetime(2021,4,15)),
+        "standard" datetime string (e.g., "2021/04/15") or integer of the form
+        yyyymmdd with empty positions filled with zeros, e.g. '20210415'
+        (enddate must always be later than startdate)
     level : {'l2', 'll'}, optional
         Defines level of data product: level 2 ('l2') or low-latency ('ll').
         By default 'l2'.
@@ -49,7 +48,7 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
     """
     if type == 'normal-1-minute' and frame == 'srf':
         raise Exception("For SRF frame only 'normal' or 'burst' data type available!")
-    
+
     if type == 'normal-1-min':
         type = 'normal-1-minute'
 
@@ -59,7 +58,12 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
     else:
         data_id = 'SOLO_'+level.upper()+'_MAG-'+frame.upper()+'-'+type.upper()
 
-    trange = a.Time(_date2str(startdate), _date2str(enddate))
+    if isinstance(startdate, int):
+        startdate = _date2str(startdate)
+    if isinstance(enddate, int):
+        enddate = _date2str(enddate)
+
+    trange = a.Time(startdate, enddate)
     dataset = a.cdaweb.Dataset(data_id)
     result = Fido.search(trange, dataset)
     files = Fido.fetch(result)
