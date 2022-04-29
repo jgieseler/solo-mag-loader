@@ -19,7 +19,7 @@ def _date2str(date):
     return year+'/'+month+'/'+day
 
 
-def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
+def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=None):
     """
     Load SolO/MAG data
 
@@ -41,6 +41,8 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
         By default 'normal'.
     frame : {'rtn', 'srf', or 'vso'}, optional
         Coordinate frame of MAG data. By default 'rtn'.
+    path : {str}, optional
+        Local path for storing downloaded data, by default None
 
     Returns
     -------
@@ -66,7 +68,7 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn'):
     trange = a.Time(startdate, enddate)
     dataset = a.cdaweb.Dataset(data_id)
     result = Fido.search(trange, dataset)
-    files = Fido.fetch(result)
+    files = Fido.fetch(result, path=path)
 
     solo_mag = TimeSeries(files, concatenate=True)
     df_solo_mag = solo_mag.to_dataframe()
