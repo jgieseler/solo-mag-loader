@@ -28,7 +28,7 @@ returns Pandas dataframe(s) of the MAG measurements.
 
    startdate = 20210711
    enddate = 20210712 
-   df = mag_load(startdate, enddate, level='l2', type='normal', frame='rtn')
+   df = mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=None)
 
 Input
 ~~~~~
@@ -37,6 +37,8 @@ Input
 -  ``level``: ``'l2'`` or ``'ll'`` (string). Defines level of data product: level 2 ('l2') or low-latency ('ll'). By default 'l2'
 -  ``type``: ``'normal'``, ``'normal-1-minute'``, or ``'burst'`` (string), optional. By default 'normal'.
 -  ``frame``: ``'rtn'``, ``'srf'``, or ``'vso'`` (string), optional. Coordinate frame of MAG data. By default 'rtn'.
+-  ``path``: String, optional. Local path for storing downloaded data, e.g. ``path='data/solo/mag/'``. By default `None`. Default setting saves data according to `sunpy's Fido standards <https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html#downloading-data>`_.
+
 
 ``level='ll'`` and ``frame='VSO'`` not working at the moment!
 
