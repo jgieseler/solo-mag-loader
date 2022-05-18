@@ -24,7 +24,7 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=No
     Load SolO/MAG data
 
     Load-in data for Solar Orbiter/MAG sensor. Supports level 2 and low latency
-    data provided by ESA's Solar Orbiter Archive. Optionally downloads missing
+    data provided by CDAWeb. Optionally downloads missing
     data directly. Returns data as Pandas dataframe.
 
     Parameters
