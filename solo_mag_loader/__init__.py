@@ -79,7 +79,7 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=No
 
     for i, f in enumerate(filelist):
         if not os.path.exists(f):
-            downloaded_file = Fido.fetch(result[i], path=path)
+            downloaded_file = Fido.fetch(result[0][i], path=path)
     # files = Fido.fetch(result, path=path)
 
     solo_mag = TimeSeries(filelist, concatenate=True)
