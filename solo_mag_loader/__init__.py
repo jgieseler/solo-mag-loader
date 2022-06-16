@@ -7,6 +7,8 @@ except DistributionNotFound:
     pass  # package is not installed
 
 import datetime as dt
+import os
+import sunpy
 from sunpy.net import Fido
 from sunpy.net import attrs as a
 from sunpy.timeseries import TimeSeries
