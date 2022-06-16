@@ -68,9 +68,19 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=No
     trange = a.Time(startdate, enddate)
     dataset = a.cdaweb.Dataset(data_id)
     result = Fido.search(trange, dataset)
-    files = Fido.fetch(result, path=path)
+    filelist = [i[0].split('/')[-1] for i in result.show('URL')[0]]
+    filelist.sort()
+    if path is None:
+        filelist = [sunpy.config.get('downloads', 'download_dir') + os.sep + file for file in filelist]
+    elif type(path) is str:
+        filelist = [path + os.sep + f for f in filelist]
 
-    solo_mag = TimeSeries(files, concatenate=True)
+    for i, f in enumerate(filelist):
+        if not os.path.exists(f):
+            downloaded_file = Fido.fetch(result[i], path=path)
+    # files = Fido.fetch(result, path=path)
+
+    solo_mag = TimeSeries(filelist, concatenate=True)
     df_solo_mag = solo_mag.to_dataframe()
     return df_solo_mag
 
