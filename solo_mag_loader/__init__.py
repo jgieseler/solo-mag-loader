@@ -78,7 +78,9 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=No
         filelist = [path + os.sep + f for f in filelist]
 
     for i, f in enumerate(filelist):
-        if not os.path.exists(f) or os.path.getsize(f) == 0:
+        if os.path.getsize(f) == 0:
+            os.remove(f)
+        if not os.path.exists(f):
             downloaded_file = Fido.fetch(result[0][i], path=path)
     # files = Fido.fetch(result, path=path)
 
