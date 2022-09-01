@@ -21,7 +21,7 @@ def _date2str(date):
     return year+'/'+month+'/'+day
 
 
-def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=None):
+def mag_load(startdate, enddate, level='l2', data_type='normal', frame='rtn', path=None):
     """
     Load SolO/MAG data
 
@@ -39,7 +39,7 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=No
     level : {'l2', 'll'}, optional
         Defines level of data product: level 2 ('l2') or low-latency ('ll').
         By default 'l2'.
-    type : {'normal', 'normal-1-minute', or 'burst'}, optional
+    data_type : {'normal', 'normal-1-minute', or 'burst'}, optional
         By default 'normal'.
     frame : {'rtn', 'srf', or 'vso'}, optional
         Coordinate frame of MAG data. By default 'rtn'.
@@ -50,17 +50,17 @@ def mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=No
     -------
     Pandas dataframe with fluxes and errors in 'particles / (s cm^2 sr MeV)'
     """
-    if type == 'normal-1-minute' and frame == 'srf':
+    if data_type == 'normal-1-minute' and frame == 'srf':
         raise Exception("For SRF frame only 'normal' or 'burst' data type available!")
 
-    if type == 'normal-1-min':
-        type = 'normal-1-minute'
+    if data_type == 'normal-1-min':
+        data_type = 'normal-1-minute'
 
     if level == 'll' or level == 'LL':
         level = 'll02'
         data_id = 'SOLO_'+level.upper()+'_MAG'
     else:
-        data_id = 'SOLO_'+level.upper()+'_MAG-'+frame.upper()+'-'+type.upper()
+        data_id = 'SOLO_'+level.upper()+'_MAG-'+frame.upper()+'-'+data_type.upper()
 
     if isinstance(startdate, int):
         startdate = _date2str(startdate)
