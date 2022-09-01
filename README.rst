@@ -32,14 +32,14 @@ returns Pandas dataframe(s) of the MAG measurements.
 
    startdate = 20210711
    enddate = 20210712 
-   df = mag_load(startdate, enddate, level='l2', type='normal', frame='rtn', path=None)
+   df = mag_load(startdate, enddate, level='l2', data_type='normal', frame='rtn', path=None)
 
 Input
 ~~~~~
 
 -  ``startdate``, ``enddate``: Datetime object (e.g., dt.date(2021,12,31) or dt.datetime(2021,4,15)), "standard"  datetime string (e.g., "2021/04/15") or integer of the form yyyymmdd with empty positions filled with zeros, e.g. '20210415' (enddate must be later than startdate)
 -  ``level``: ``'l2'`` or ``'ll'`` (string). Defines level of data product: level 2 ('l2') or low-latency ('ll'). By default 'l2'
--  ``type``: ``'normal'``, ``'normal-1-minute'``, or ``'burst'`` (string), optional. By default 'normal'. *Addendum:* If there is no ``'normal'`` (or ``'normal-1-minute'``) data available, another level 2 data product might be available, which is "derived from LL data". It can be accessed with ``type = 'll'`` or ``type = 'll-1-minute'`` (don't confuse this with ``level = 'll'``). See `SOL-MAG-DataReleaseReport_2109_ v2_10Dec2021.pdf <https://issues.cosmos.esa.int/solarorbiterwiki/download/attachments/60885589/SOL-MAG-DataReleaseReport_2109_%20v2_10Dec2021.pdf?version=1&modificationDate=1639479720000&api=v2>`_ for more details. 
+-  ``data_type``: ``'normal'``, ``'normal-1-minute'``, or ``'burst'`` (string), optional. By default 'normal'. *Addendum:* If there is no ``'normal'`` (or ``'normal-1-minute'``) data available, another level 2 data product might be available, which is "derived from LL data". It can be accessed with ``data_type = 'll'`` or ``data_type = 'll-1-minute'`` (don't confuse this with ``level = 'll'``). See `SOL-MAG-DataReleaseReport_2109_ v2_10Dec2021.pdf <https://issues.cosmos.esa.int/solarorbiterwiki/download/attachments/60885589/SOL-MAG-DataReleaseReport_2109_%20v2_10Dec2021.pdf?version=1&modificationDate=1639479720000&api=v2>`_ for more details. 
 -  ``frame``: ``'rtn'``, ``'srf'``, or ``'vso'`` (string), optional. Coordinate frame of MAG data. By default 'rtn'.
 -  ``path``: String, optional. Local path for storing downloaded data, e.g. ``path='data/solo/mag/'``. By default `None`. Default setting saves data according to `sunpy's Fido standards <https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html#downloading-data>`_.
 
