@@ -3,6 +3,10 @@ solo-mag-loader
 
 Python data loader for Solar Orbiter's (SolO) MAG instrument. At the moment provides level 2 (l2) obtained by SunPy through CDF files from CDAWeb.
 
+Update 1st Sep 2022
+-------------------
+Please note that with the latest update the parameter ``type`` has been renamed to ``data_type`` in the call of ``mag_load()``! Please adjust your code accordingly.
+
 Disclaimer
 ----------
 This software is provided "as is", with no guarantee. It is no official data source, and not officially endorsed by the corresponding instrument teams. **Please always refer to the** `official MAG data description <https://issues.cosmos.esa.int/solarorbiterwiki/display/SOSP/Archive+Support+Data#ArchiveSupportData-MAGInstrument>`_ **before using the data!**
