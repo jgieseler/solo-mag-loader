@@ -1,3 +1,8 @@
+This package is not maintained any more! Please use https://github.com/serpentine-h2020/SEPpy instead!
+======================================================================================================
+
+See https://seppy.readthedocs.io/en/latest/api.html#seppy.loader.solo.mag_load for usage.
+
 solo-mag-loader
 ===============
 
